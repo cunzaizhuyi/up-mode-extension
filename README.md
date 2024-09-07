@@ -9,8 +9,9 @@ This plugin is suitable for the following scenarios:
 - When developers conduct team technical sharing
 - When employees start internal meeting screen sharing
 
-In these scenarios, you can enable browser privacy protection with one click.   
-hide pinned browser extensions.
+In these scenarios, you can enable browser privacy protection with one click by hiding all pinned browser extensions.
+
+At the same time, you get a cleaner and more aesthetically pleasing interface, which also makes sharing itself more focused.
 
 
 ## Install
