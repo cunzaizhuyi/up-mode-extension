@@ -17,5 +17,7 @@ At the same time, you get a cleaner and more aesthetically pleasing interface, w
 ## Install
 
 This extension has not yet been published to the app store.
-You can complete the installation in the following way: 
-download this project and upload the `extension` directory to `chrome://extensions/`.
+You can complete the installation in the following ways: 
+- download this project and upload the `extension` directory to `chrome://extensions/`.
+-  
+[Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
