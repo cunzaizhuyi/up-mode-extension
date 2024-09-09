@@ -21,3 +21,8 @@ You can complete the installation in the following ways:
 - download this project and upload the `extension` directory to `chrome://extensions/`.
 -  
 [Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
+
+
+## User Group
+
+<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/wx-group.jpg" width="100" height="130">
