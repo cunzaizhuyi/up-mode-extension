@@ -35,16 +35,9 @@ export async function getManifest() {
       128: './assets/privacy.png',
     },
     permissions: [
-      'tabs',
       'storage',
-      'activeTab',
-      'sidePanel',
-      'bookmarks',
       'management',
-      'scripting',
-      "commands"
     ],
-    host_permissions: ['*://*/*'],
     content_scripts: [
       {
         matches: [
