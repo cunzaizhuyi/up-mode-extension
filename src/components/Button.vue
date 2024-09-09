@@ -38,7 +38,7 @@ const computedStyle = computed(() => ({
   color: props.txtColor,
   padding: props.padding,
   border: 'none',
-  borderRadius: '20px',
+  borderRadius: '12px',
   cursor: props.disabled ? 'not-allowed' : 'pointer'
 }));
 
