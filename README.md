@@ -22,8 +22,7 @@ At the same time, you get a cleaner and more aesthetically pleasing interface, w
 This extension has been published to the app store.
 You can complete the installation in the following ways: 
 - [Install from Chrome app store](https://chromewebstore.google.com/detail/up-mode/maiiinianakmklepgbpffmgmhpnoniem?hl=zh-CN&utm_source=ext_sidebar)
--  
-[Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
+- [Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
 
 
 ## User Group
