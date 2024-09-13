@@ -37,7 +37,17 @@ export async function getManifest() {
     permissions: [
       'storage',
       'management',
+      'activeTab'
     ],
+    "commands": {
+        "toggleExtensions": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S",
+                "mac": "Command+Shift+S"
+            },
+            "description": "Toggle Extensions",
+        }
+    },
     content_scripts: [
       {
         matches: [

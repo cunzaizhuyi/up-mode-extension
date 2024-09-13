@@ -8,3 +8,6 @@ export const setting = useWebExtensionStorage('setting', {
     isExtention: true,
     isBookmark: true,
 })
+
+export const extensions: any = useWebExtensionStorage('extensions', []);
+export const isShow: any = useWebExtensionStorage('isShow', true);

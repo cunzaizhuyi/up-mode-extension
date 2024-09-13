@@ -25,6 +25,13 @@ You can complete the installation in the following ways:
 - [Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
 
 
+## Usage
+
+- open extension, click button
+- shortcut:
+    - default: Ctrl+Shift+S
+    - macOS: Command+Shift+S
+
 ## User Group
 
 <img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/wx-group.jpg" width="200" height="280">

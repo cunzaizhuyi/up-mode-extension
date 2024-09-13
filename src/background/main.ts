@@ -1,6 +1,7 @@
 import { onMessage, sendMessage } from 'webext-bridge/background'
 import type { Tabs } from 'webextension-polyfill'
 import browser from 'webextension-polyfill';
+import { toggleExtensions } from '~/composables/useToggleExt';
 
 // only on dev mode
 if (import.meta.hot) {
@@ -92,4 +93,10 @@ onMessage('toggle-bookmark', async ({ data }) => {
     args: [keyEventOptions]
   });
 })
+
+browser.commands.onCommand.addListener((command) => {
+  if (command === "toggleExtensions") {
+    toggleExtensions()
+  }
+});
 
