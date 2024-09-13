@@ -1,6 +1,7 @@
 
 ## 0.1.0
 - feature: add shortcut
+- refactor: composables/useToggleExt.ts
 
 ## 0.0.3
 - bug fix: double click
