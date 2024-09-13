@@ -15,29 +15,38 @@ onMounted(async () => {
 })
 
 async function handleUpMode() {
-  hiddenExtensions();
+  await hiddenExtensions();
   // await toggleBookmark()
-  window.close();
+  setTimeout(()=>{
+    window.close();
+  }, 300)
   // setting.value.isFullscreen && toggleFullscreen(true)
   // setting.value.isBookmark && toggleBookmark();
 }
-function handleReset() {
-  showExtensions();
-  window.close();
+async function handleReset() {
+  await showExtensions();
+  setTimeout(()=>{
+    window.close();
+  }, 300)
   // setting.value.isFullscreen && toggleFullscreen(false)
   // setting.value.isBookmark && toggleBookmark();
 }
 
 async function hiddenExtensions(){
   extensions.value = (await browser.management.getAll())
-  .filter((extension)=> extension.enabled);
+  .filter((extension)=> extension.enabled)
+  .map(({ id, enabled, name }) => ({id, enabled, name }));
   const currentExtensionId = browser.runtime.id;
 
   // 禁用除当前扩展之外的所有扩展
-  extensions.value.forEach((extension: any) => {
+  extensions.value.forEach(async (extension: any) => {
       if (extension.id !== currentExtensionId && extension.enabled) {
-          browser.management.setEnabled(extension.id, false);
+        try {
+          await browser.management.setEnabled(extension.id, false);
           // console.log(`禁用扩展: ${extension.name}`);
+        } catch (error) {
+          console.log('hiddenExtensions', error);
+        }
       }
   });
   
@@ -45,10 +54,15 @@ async function hiddenExtensions(){
 
 async function showExtensions() {
   const currentExtensionId = browser.runtime.id;
-  extensions.value.forEach((extension: any) => {
+  // console.log('extensions: ', extensions.value);
+  extensions.value.forEach(async (extension: any) => {
     if (extension.id !== currentExtensionId) {
-      browser.management.setEnabled(extension.id, true);
-      // console.log(`启用扩展: ${extension.name}`);
+      try {
+        await browser.management.setEnabled(extension.id, true);
+        // console.log(`启用扩展: ${extension.name}`);
+      } catch (error) {
+        console.log(`showExtensions: ${error}`);
+      }
     }
   });
 }
@@ -140,6 +154,7 @@ async function toggleBookmark () {
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.83-.01-1.5-2.24.49-2.71-1.08-2.71-1.08-.36-.91-.88-1.15-.88-1.15-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.22 1.86.87 2.31.67.07-.51.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.84A7.66 7.66 0 0 1 8 2.5c.68 0 1.36.09 2 .26 1.53-1.06 2.2-.84 2.2-.84.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.66 3.95.29.25.55.74.55 1.49 0 1.08-.01 1.95-.01 2.21 0 .21.15.46.55.38C13.71 14.54 16 11.54 16 8c0-4.42-3.58-8-8-8z"/>
         </svg>
       </a>
+      <span>V0.0.2</span>
     </div>
   </main>
 </template>
