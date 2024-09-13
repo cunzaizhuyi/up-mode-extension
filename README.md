@@ -11,6 +11,8 @@ This plugin is suitable for the following scenarios:
 
 In these scenarios, you can enable browser privacy protection with one click by hiding all pinned browser extensions.
 
+Save half a minute with each use.
+
 At the same time, you get a cleaner and more aesthetically pleasing interface, which also makes sharing itself more focused.
 
 

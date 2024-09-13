@@ -16,7 +16,7 @@ onMounted(async () => {
 
 async function handleUpMode() {
   hiddenExtensions();
-  await toggleBookmark()
+  // await toggleBookmark()
   window.close();
   // setting.value.isFullscreen && toggleFullscreen(true)
   // setting.value.isBookmark && toggleBookmark();
