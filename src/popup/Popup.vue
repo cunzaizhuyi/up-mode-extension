@@ -16,10 +16,10 @@ onMounted(async () => {
 
 async function handleUpMode() {
   await hiddenExtensions();
+  // setTimeout(()=>{
+  //   window.close();
+  // }, 300)
   // await toggleBookmark()
-  setTimeout(()=>{
-    window.close();
-  }, 300)
   // setting.value.isFullscreen && toggleFullscreen(true)
   // setting.value.isBookmark && toggleBookmark();
 }
@@ -33,10 +33,19 @@ async function handleReset() {
 }
 
 async function hiddenExtensions(){
-  extensions.value = (await browser.management.getAll())
+  const currentExtensionId = browser.runtime.id;
+
+  let list = (await browser.management.getAll())
   .filter((extension)=> extension.enabled)
   .map(({ id, enabled, name }) => ({id, enabled, name }));
-  const currentExtensionId = browser.runtime.id;
+  // fix bug
+  if (!list.length) {
+    return;
+  } else if (list.length === 1 && list[0].id === currentExtensionId) {
+    return;
+  }
+  extensions.value = list;
+  
 
   // 禁用除当前扩展之外的所有扩展
   extensions.value.forEach(async (extension: any) => {
