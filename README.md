@@ -16,6 +16,8 @@ At the same time, you get a cleaner and more aesthetically pleasing interface, w
 
 ## Install
 
+> Note: This extension may have compatibility issues on non-Chrome browsers.
+
 This extension has been published to the app store.
 You can complete the installation in the following ways: 
 - [Install from Chrome app store](https://chromewebstore.google.com/detail/up-mode/maiiinianakmklepgbpffmgmhpnoniem?hl=zh-CN&utm_source=ext_sidebar)
