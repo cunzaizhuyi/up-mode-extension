@@ -36,8 +36,7 @@ export async function getManifest() {
     },
     permissions: [
       'storage',
-      'management',
-      'activeTab'
+      'management'
     ],
     "commands": {
         "toggleExtensions": {
