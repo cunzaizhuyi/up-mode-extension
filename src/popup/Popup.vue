@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { useWebExtensionStorage } from '~/composables/useWebExtensionStorage'
 import { hiddenExtensions, showExtensions } from '~/composables/useToggleExt';
 import { sendMessage } from 'webext-bridge/popup'
 import browser from 'webextension-polyfill'
 import SwitchComponent from '~/components/Switch.vue';
 import ButtonComponent from '~/components/Button.vue';
-import { isShow } from '~/logic';
+import packageJson from '../../package.json'; // 导入 package.json
+
+// 版本号
+const version = packageJson.version; // 获取版本号
 
 onMounted(async () => {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true })
@@ -16,8 +18,9 @@ onMounted(async () => {
 async function handleUpMode() {
   await hiddenExtensions();
   setTimeout(()=>{
-    // window.close();
+    !__DEV__ && window.close();
   }, 300)
+
   // await toggleBookmark()
   // setting.value.isFullscreen && toggleFullscreen(true)
   // setting.value.isBookmark && toggleBookmark();
@@ -25,7 +28,7 @@ async function handleUpMode() {
 async function handleReset() {
   await showExtensions();
   setTimeout(()=>{
-    // window.close();
+    !__DEV__ && window.close();
   }, 300)
   // setting.value.isFullscreen && toggleFullscreen(false)
   // setting.value.isBookmark && toggleBookmark();
@@ -119,7 +122,7 @@ async function toggleBookmark () {
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.83-.01-1.5-2.24.49-2.71-1.08-2.71-1.08-.36-.91-.88-1.15-.88-1.15-.72-.49.05-.48.05-.48.8.06 1.22.82 1.22.82.71 1.22 1.86.87 2.31.67.07-.51.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.84A7.66 7.66 0 0 1 8 2.5c.68 0 1.36.09 2 .26 1.53-1.06 2.2-.84 2.2-.84.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.66 3.95.29.25.55.74.55 1.49 0 1.08-.01 1.95-.01 2.21 0 .21.15.46.55.38C13.71 14.54 16 11.54 16 8c0-4.42-3.58-8-8-8z"/>
         </svg>
       </a>
-      <span>V0.1.0</span>
+      <span>V{{ version }}</span> <!-- 在版本号前加大写的V -->
     </div>
   </main>
 </template>
