@@ -1,0 +1,30 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # 监听以 v 开头的标签推送
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install  # 安装依赖
+
+      - name: Build project
+        run: npm run build  # 执行构建命令
+
+      - name: Create zip file
+        run: zip -r extension.zip ./extension/  # 压缩 ./extension/ 目录
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}  # 使用推送的标签作为 release 的标签
+          files: extension.zip  # 上传的文件
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
