@@ -27,6 +27,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}  # 使用推送的标签作为 release 的标签
-          files: extension.zip  # 上传的文件
+          files: |
+            extension.zip  # 上传的文件
+            CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
