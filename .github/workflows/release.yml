@@ -1,8 +1,5 @@
 name: Create Release
 
-permissions:
-  contents: write
-
 on:
   push:
     tags:
@@ -11,6 +8,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 在作业级别添加权限
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
