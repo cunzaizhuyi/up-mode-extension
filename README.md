@@ -38,4 +38,4 @@ You can complete the installation in the following ways:
 
 ## sponsor
 
-<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/coffee.jpg" width="200" height="280">
+<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/coffee.jpg" width="200" height="215">
