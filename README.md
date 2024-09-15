@@ -35,3 +35,7 @@ You can complete the installation in the following ways:
 ## User Group
 
 <img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/wx-group.jpg" width="200" height="280">
+
+## sponsor
+
+<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/coffee.jpg" width="200" height="280">
