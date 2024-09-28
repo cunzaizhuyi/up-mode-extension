@@ -23,12 +23,12 @@ export async function getManifest() {
     },
     background: isFirefox
       ? {
-        scripts: ['dist/background/index.mjs'],
-        type: 'module',
-      }
+          scripts: ['dist/background/index.mjs'],
+          type: 'module',
+        }
       : {
-        service_worker: './dist/background/index.mjs',
-      },
+          service_worker: './dist/background/index.mjs',
+        },
     icons: {
       16: './assets/privacy.png',
       48: './assets/privacy.png',
@@ -36,16 +36,16 @@ export async function getManifest() {
     },
     permissions: [
       'storage',
-      'management'
+      'management',
     ],
-    "commands": {
-        "toggleExtensions": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+S",
-                "mac": "Command+Shift+S"
-            },
-            "description": "Toggle Extensions",
-        }
+    commands: {
+      toggleExtensions: {
+        suggested_key: {
+          default: 'Ctrl+Shift+S',
+          mac: 'Command+Shift+S',
+        },
+        description: 'Toggle Extensions',
+      },
     },
     content_scripts: [
       {

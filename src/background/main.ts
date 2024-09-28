@@ -1,7 +1,7 @@
 import { onMessage, sendMessage } from 'webext-bridge/background'
 import type { Tabs } from 'webextension-polyfill'
-import browser from 'webextension-polyfill';
-import { toggleExtensions } from '~/composables/useToggleExt';
+import browser from 'webextension-polyfill'
+import { toggleExtensions } from '~/composables/useToggleExt'
 
 // only on dev mode
 if (import.meta.hot) {
@@ -68,35 +68,35 @@ onMessage('get-current-tab', async () => {
 
 onMessage('toggle-bookmark', async ({ data }) => {
   const platformInfo = await browser.runtime.getPlatformInfo()
-  let keyEventOptions;
-  console.log('info', platformInfo);
-  if (platformInfo.os === "mac") {
+  let keyEventOptions
+  console.log('info', platformInfo)
+  if (platformInfo.os === 'mac') {
     keyEventOptions = {
       key: 'b',
-      metaKey: true,  // Command key on Mac
-      shiftKey: true
-    };
-  } else {
+      metaKey: true, // Command key on Mac
+      shiftKey: true,
+    }
+  }
+  else {
     keyEventOptions = {
       key: 'b',
       ctrlKey: true,
-      shiftKey: true
-    };
+      shiftKey: true,
+    }
   }
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true })
   console.log('tabid', tab, tab?.id)
   browser.scripting.executeScript({
     target: { tabId: tab?.id as number },
     func: (options) => {
-      document.dispatchEvent(new KeyboardEvent('keydown', {}));
+      document.dispatchEvent(new KeyboardEvent('keydown', {}))
     },
-    args: [keyEventOptions]
-  });
+    args: [keyEventOptions],
+  })
 })
 
 browser.commands.onCommand.addListener((command) => {
-  if (command === "toggleExtensions") {
+  if (command === 'toggleExtensions') {
     toggleExtensions()
   }
-});
-
+})

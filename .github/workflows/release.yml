@@ -3,32 +3,32 @@ name: Create Release
 on:
   push:
     tags:
-      - 'v*.*.*'  # 监听以 v 开头的标签推送
+      - 'v*.*.*' # 监听以 v 开头的标签推送
 
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 在作业级别添加权限
+      contents: write # 在作业级别添加权限
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm install  # 安装依赖
+        run: npm install # 安装依赖
 
       - name: Build project
-        run: npm run build  # 执行构建命令
+        run: npm run build # 执行构建命令
 
       - name: Create zip file
-        run: zip -r extension.zip ./extension/  # 压缩 ./extension/ 目录
+        run: zip -r extension.zip ./extension/ # 压缩 ./extension/ 目录
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}  # 使用推送的标签作为 release 的标签
+          tag_name: ${{ github.ref }} # 使用推送的标签作为 release 的标签
           files: |
             extension.zip  # 上传的文件
             CHANGELOG.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token

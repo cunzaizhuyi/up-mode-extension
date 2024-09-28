@@ -11,13 +11,12 @@ import browser from 'webextension-polyfill'
     console.log(`[vitesse-webext] Navigate from page "${data.title}"`)
   })
 
-  onMessage('toggle-fullscreen', async ({ data})=>{
-    console.log('1111');
+  onMessage('toggle-fullscreen', async ({ data }) => {
+    console.log('1111')
     const [tab] = await browser.tabs.query({ active: true, currentWindow: true })
     console.log('tab', tab)
     browser.tabs.executeScript(tab?.id || (data as any)?.id, {
-        code: 'document.documentElement.requestFullscreen();'
-    });
+      code: 'document.documentElement.requestFullscreen();',
+    })
   })
-
 })()
