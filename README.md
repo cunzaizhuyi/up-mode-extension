@@ -15,15 +15,12 @@ Save half a minute with each use.
 
 At the same time, you get a cleaner and more aesthetically pleasing interface, which also makes sharing itself more focused.
 
-
 ## Install
 
-
 This extension has been published to the app store.
-You can complete the installation in the following ways: 
+You can complete the installation in the following ways:
 - [Install from Chrome app store](https://chromewebstore.google.com/detail/up-mode/maiiinianakmklepgbpffmgmhpnoniem?hl=zh-CN&utm_source=ext_sidebar)
 - [Download ZIP](https://github.com/cunzaizhuyi/up-mode-extension/raw/main/extension.zip)
-
 
 ## Usage
 
@@ -31,6 +28,13 @@ You can complete the installation in the following ways:
 - shortcut:
     - default: Ctrl+Shift+S
     - macOS: Command+Shift+S
+
+## Note
+
+Because browsers do not provide a pinned API for extensions, this plugin is implemented based on the setEnabled API. When you hide all extensions, they are actually disabled. 
+If you mind this, please use it with caution.
+
+For a more detailed discussion, refer to [here](https://github.com/w3c/webextensions/issues/689).
 
 ## User Group
 
