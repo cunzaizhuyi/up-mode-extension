@@ -38,7 +38,7 @@ For a more detailed discussion, refer to [here](https://github.com/w3c/webextens
 
 ## User Group
 
-<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/wx-group2.jpg" width="200" height="280">
+<img src="https://github.com/cunzaizhuyi/up-mode-extension/raw/main/wx-group.jpg" width="200" height="280">
 
 ## sponsor
 
